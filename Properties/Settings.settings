@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Blank_TCP_Server.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ipport" Type="System.String" Scope="User">
+      <Value Profile="(Default)">9900</Value>
+    </Setting>
+    <Setting Name="beeptime" Type="System.String" Scope="User">
+      <Value Profile="(Default)">40000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

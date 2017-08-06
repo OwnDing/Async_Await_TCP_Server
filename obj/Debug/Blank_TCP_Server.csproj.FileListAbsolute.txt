@@ -1,0 +1,35 @@
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\bin\Debug\Blank_TCP_Server.exe
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\bin\Debug\Blank_TCP_Server.pdb
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\bin\Debug\ProcessInterface.dll
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\bin\Debug\ProcessInterface.pdb
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.csprojResolveAssemblyReference.cache
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.Properties.Resources.resources
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.csproj.GenerateResource.Cache
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.exe
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.pdb
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\bin\Debug\Blank_TCP_Server.exe.config
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.tcpform.resources
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.Views.DataTransfer.resources
+E:\Visual Studio 2013\Projects\TCP_C_coll\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.Views.FormAbout.resources
+E:\Visual Studio 2013\Projects\BlankView\Blank_TCP_Server\bin\Debug\Blank_TCP_Server.exe.config
+E:\Visual Studio 2013\Projects\BlankView\Blank_TCP_Server\bin\Debug\Blank_TCP_Server.exe
+E:\Visual Studio 2013\Projects\BlankView\Blank_TCP_Server\bin\Debug\Blank_TCP_Server.pdb
+E:\Visual Studio 2013\Projects\BlankView\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.tcpform.resources
+E:\Visual Studio 2013\Projects\BlankView\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.Properties.Resources.resources
+E:\Visual Studio 2013\Projects\BlankView\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.Views.DataTransfer.resources
+E:\Visual Studio 2013\Projects\BlankView\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.Views.FormAbout.resources
+E:\Visual Studio 2013\Projects\BlankView\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.csproj.GenerateResource.Cache
+E:\Visual Studio 2013\Projects\BlankView\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.exe
+E:\Visual Studio 2013\Projects\BlankView\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.pdb
+E:\Visual Studio 2013\Projects\BlankView\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\bin\Debug\Blank_TCP_Server.exe.config
+C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\bin\Debug\Blank_TCP_Server.exe
+C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\bin\Debug\Blank_TCP_Server.pdb
+C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.tcpform.resources
+C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.Properties.Resources.resources
+C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.Views.DataTransfer.resources
+C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.Views.FormAbout.resources
+C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.exe
+C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.pdb
