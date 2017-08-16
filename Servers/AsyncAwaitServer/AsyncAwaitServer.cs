@@ -62,8 +62,6 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             try
             {
                 listener.Start();
-                //just fire and forget. We break from the "forgotten" async loops
-                //in AcceptClientsAsync using a CancellationToken from `cts`
                 isRuning = true;
                 var task=AcceptClientsAsync(listener, cts.Token);
                 if (task.IsFaulted)
@@ -121,8 +119,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
                 }
                 TcpClient client = await listener.AcceptTcpClientAsync().ConfigureAwait(false);
                 ip = client.Client.RemoteEndPoint.ToString();
-                //once again, just fire and forget, and use the CancellationToken
-                //to signal to the "forgotten" async invocation.
+
                 var task= EchoAsync(client, ip, ct);
             }
         }
@@ -132,7 +129,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         async Task EchoAsync(TcpClient client,string ip,CancellationToken ct)
         {
             Console.WriteLine("New client ({0}) connected", ip);
-            string data;
+            //string data;
 
             using (client)
             {
@@ -158,11 +155,10 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
                         await stream.WriteAsync(msg, 0, msg.Length);
                         break;
                     }
-                    //now we know that the amountTask is complete so
-                    //we can ask for its Result without blocking
+                    //in some caes,this is helpful
                     if (amountReadTask.IsFaulted || amountReadTask.IsCanceled) {
-                        data = "Error:IsFaulted||IsCanceled   " + ip;
-                        writeinfo(data);
+                        //data = "Error:IsFaulted||IsCanceled   " + ip;
+                        //writeinfo(data);
                         break; }
                     var amountRead = amountReadTask.Result;
                     Message ms = new Message();
@@ -176,8 +172,8 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             }
             Interlocked.Decrement(ref this.numConnectedSockets);
             Console.WriteLine("Client ({0}) disconnected.There are {1} clients connected to the server", ip,numConnectedSockets);
-            data = "disconnected...   " + ip+"---Time:"+DateTime.Now.ToString();
-            writeinfo(data);
+            //data = "disconnected...   " + ip+"---Time:"+DateTime.Now.ToString();
+            //writeinfo(data);
             _clients.TryRemove(ip, out client);
             ConnectionStatus cs = ConnectionStatus.delete;
             UpdateListView(ip, cs);
