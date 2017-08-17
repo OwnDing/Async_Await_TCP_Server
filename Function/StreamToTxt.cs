@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,6 +11,8 @@ namespace Blank_TCP_Server.Function
 {
     public class StreamToTxt
     {
+        private Mutex mut = new Mutex();
+
         public string ErrPath_Name
         {
             get
@@ -22,6 +25,20 @@ namespace Blank_TCP_Server.Function
             }
         }
         public void WriteInfo(string str)
+        {
+            mut.WaitOne();
+
+            try
+            {
+                StreamToTxtFile(str);
+            }
+            finally
+            {
+                mut.ReleaseMutex();
+            }
+        }
+
+        public void StreamToTxtFile(string str)
         {
             string path = null;
             path = ErrPath_Name + "\\log.txt";

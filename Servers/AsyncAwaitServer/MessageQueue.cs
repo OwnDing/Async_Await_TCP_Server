@@ -10,9 +10,16 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
 {
     public class MessageQueue : TaskQueue<Message>
     {
+        MessageDictionary msgDic = new MessageDictionary();
+
         public MessageQueue(int workerCount) : base(workerCount)
         {
 
+        }
+
+        public void Stop()
+        {
+            msgDic.SqlShutDown();
         }
 
         protected override void Consume()
@@ -28,7 +35,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
                 if (task == null) return;         // This signals our exit
                 //var s = task.MessageToStringArray();
                 Console.WriteLine(task);
-                sql.fillTable(task);
+                msgDic.Add(task);
                 Console.WriteLine();
             }
         }

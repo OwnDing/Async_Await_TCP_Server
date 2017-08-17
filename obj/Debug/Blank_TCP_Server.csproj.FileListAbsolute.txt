@@ -33,3 +33,14 @@ C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\obj\Debug\Blank_TCP_Ser
 C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.exe
 C:\Users\Administrator\Documents\GitHub\Blank_TCP_Server\obj\Debug\Blank_TCP_Server.pdb
+C:\Users\OwnDing\Documents\GitHub\Async_Await_TCP_Server\bin\Debug\Blank_TCP_Server.exe.config
+C:\Users\OwnDing\Documents\GitHub\Async_Await_TCP_Server\bin\Debug\Blank_TCP_Server.exe
+C:\Users\OwnDing\Documents\GitHub\Async_Await_TCP_Server\bin\Debug\Blank_TCP_Server.pdb
+C:\Users\OwnDing\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.csprojResolveAssemblyReference.cache
+C:\Users\OwnDing\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.tcpform.resources
+C:\Users\OwnDing\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.Properties.Resources.resources
+C:\Users\OwnDing\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.Views.DataTransfer.resources
+C:\Users\OwnDing\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.Views.FormAbout.resources
+C:\Users\OwnDing\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.csproj.GenerateResource.Cache
+C:\Users\OwnDing\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.exe
+C:\Users\OwnDing\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.pdb

@@ -44,7 +44,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         private event DataChanged dataEvent;
         //
         StreamToTxt txt = new StreamToTxt();
-        MessageQueue tq = new MessageQueue(1);
+        MessageQueue tq = new MessageQueue(2);
 
         public AsyncAwaitServer(int port, int maxConnectedClients)
         {
@@ -80,6 +80,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         {
             cts.Cancel();
             listener.Stop();
+            tq.Stop();
             tq.Dispose();
             ConnectionStatus connectionstatus = ConnectionStatus.delete;
             foreach (var client in _clients.Values)
@@ -89,11 +90,11 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
                     client.Client.Disconnect(true);
                     UpdateListView(client.Client.RemoteEndPoint.ToString(), connectionstatus);
                 }
-                catch (Exception ex)
+                finally
                 {
 
                 }
-                
+
             }
             _clients.Clear();
             Console.Write("Server Stopped!");
@@ -129,13 +130,22 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         async Task EchoAsync(TcpClient client,string ip,CancellationToken ct)
         {
             Console.WriteLine("New client ({0}) connected", ip);
-            //string data;
+            string data;
 
             using (client)
             {
                 var buf = new byte[4096];
                 var stream = client.GetStream();
-                if (!client.Client.Connected) return;
+                //if (!client.Client.Connected) return;
+                if (client.Client.Poll(0, SelectMode.SelectRead))
+                {
+                    byte[] buff = new byte[1];
+                    if (client.Client.Receive(buff, SocketFlags.Peek) == 0)
+                    {
+                        return;
+                    }
+                }
+
                 Interlocked.Increment(ref this.numConnectedSockets);
                 Console.WriteLine("Client connection accepted. There are {0} clients connected to the server",
                     this.numConnectedSockets);
@@ -152,13 +162,13 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
                     if (completedTask == timeoutTask)
                     {
                         var msg = Encoding.ASCII.GetBytes("Client timed out");
-                        await stream.WriteAsync(msg, 0, msg.Length);
+                        await stream.WriteAsync(msg, 0, msg.Length).ConfigureAwait(false);
                         break;
                     }
                     //in some caes,this is helpful
                     if (amountReadTask.IsFaulted || amountReadTask.IsCanceled) {
-                        //data = "Error:IsFaulted||IsCanceled   " + ip;
-                        //writeinfo(data);
+                        data = "Error:IsFaulted||IsCanceled   " + ip;
+                        var t1=writeinfo(data);
                         break; }
                     var amountRead = amountReadTask.Result;
                     Message ms = new Message();
@@ -172,8 +182,8 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             }
             Interlocked.Decrement(ref this.numConnectedSockets);
             Console.WriteLine("Client ({0}) disconnected.There are {1} clients connected to the server", ip,numConnectedSockets);
-            //data = "disconnected...   " + ip+"---Time:"+DateTime.Now.ToString();
-            //writeinfo(data);
+            data = "disconnected...   " + ip+"---Time:"+DateTime.Now.ToString();
+            var t2=writeinfo(data);
             _clients.TryRemove(ip, out client);
             ConnectionStatus cs = ConnectionStatus.delete;
             UpdateListView(ip, cs);
@@ -280,11 +290,12 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         #endregion
 
         #region WriteInfoToTxtFile
-        private void writeinfo(string info)
+        private async Task writeinfo(string info)
         {
             try
             {
-                txt.WriteInfo(info);
+                Task task = Task.Run(() => txt.WriteInfo(info));
+                await task.ConfigureAwait(false);
             }
             catch (Exception ex)
             {

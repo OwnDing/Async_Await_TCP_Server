@@ -83,6 +83,7 @@
     <Compile Include="Function\StreamToTxt.cs" />
     <Compile Include="Servers\AsyncAwaitServer\AsyncAwaitServer.cs" />
     <Compile Include="Servers\AsyncAwaitServer\Message.cs" />
+    <Compile Include="Servers\AsyncAwaitServer\MessageDictionary.cs" />
     <Compile Include="Servers\AsyncAwaitServer\MessageQueue.cs" />
     <Compile Include="Function\StaticMethod.cs" />
     <Compile Include="Servers\AsyncAwaitServer\TaskQueue.cs" />

@@ -1,17 +1,16 @@
+﻿using Blank_TCP_Server.SQL;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Blank_TCP_Server.SQL;
 
 namespace Blank_TCP_Server.Servers.AsyncAwaitServer
 {
     public class MessageDictionary
     {
-        private  Mutex mut = new Mutex();
+        private Mutex mut = new Mutex();
         private List<Message> list;
         private sqlitedata sql;
 
@@ -20,7 +19,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             list = new List<Message>();
             sql = new sqlitedata();
         }
-        
+
         public void Add(Message msg)
         {
             mut.WaitOne();
