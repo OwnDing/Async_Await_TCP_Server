@@ -168,7 +168,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
                     //in some caes,this is helpful
                     if (amountReadTask.IsFaulted || amountReadTask.IsCanceled) {
                         data = "Error:IsFaulted||IsCanceled   " + ip;
-                        var t1=writeinfo(data);
+                        var t1=WriteInfoAsync(data);
                         break; }
                     var amountRead = amountReadTask.Result;
                     Message ms = new Message();
@@ -183,7 +183,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             Interlocked.Decrement(ref this.numConnectedSockets);
             Console.WriteLine("Client ({0}) disconnected.There are {1} clients connected to the server", ip,numConnectedSockets);
             data = "disconnected...   " + ip+"---Time:"+DateTime.Now.ToString();
-            var t2=writeinfo(data);
+            var t2=WriteInfoAsync(data);
             _clients.TryRemove(ip, out client);
             ConnectionStatus cs = ConnectionStatus.delete;
             UpdateListView(ip, cs);
@@ -290,7 +290,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         #endregion
 
         #region WriteInfoToTxtFile
-        private async Task writeinfo(string info)
+        private async Task WriteInfoAsync(string info)
         {
             try
             {
