@@ -148,8 +148,8 @@ namespace Blank_TCP_Server
                 Console.WriteLine(msg);
                 msg = "Timer Invert:" + timer1.Interval;
                 Console.WriteLine(msg);
-                aas.eventlistview += UpdateListView;
-                aas.run();                              
+                aas.Eventlistview += UpdateListView;
+                aas.Run();                              
                 //aas.isStop = true;
                 //Console.WriteLine("Server has Stoped!");
             }

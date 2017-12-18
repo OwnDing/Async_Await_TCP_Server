@@ -25,7 +25,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         /// <summary>
         /// tell the main form to delete or add connected info
         /// </summary>
-        public enum ConnectionStatus { delete,add}
+        public enum ConnectionStatus {delete,add}
 
         /// <summary>
         /// uodate the main form tcp connections
@@ -33,15 +33,14 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         /// <param name="ip">IP</param>
         /// <param name="status">Stattus</param>
         public delegate void ChangeListView(string ip, ConnectionStatus status);
-        public event ChangeListView eventlistview;
+        public event ChangeListView Eventlistview;
         private void UpdateListView(string ip, ConnectionStatus status)
         {
-            if (eventlistview != null)
-                eventlistview(ip, status);
+            Eventlistview?.Invoke(ip, status);
         }
 
         private delegate void DataChanged(Message data);
-        private event DataChanged dataEvent;
+        private event DataChanged DataEvent;
         //
         StreamToTxt txt = new StreamToTxt();
         MessageQueue tq = new MessageQueue(2);
@@ -57,7 +56,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         /// <summary>
         /// start tcp server
         /// </summary>
-        public void run()
+        public void Run()
         {           
             try
             {
@@ -67,7 +66,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
                 if (task.IsFaulted)
                     task.Wait();
            
-                dataEvent += tq.EnqueueTask;
+                DataEvent += tq.EnqueueTask;
             }
             finally
             {
@@ -78,17 +77,21 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         /// </summary>
         public void Stop()
         {
-            cts.Cancel();
-            listener.Stop();
-            tq.Stop();
-            tq.Dispose();
-            ConnectionStatus connectionstatus = ConnectionStatus.delete;
+            try
+            {
+                cts.Cancel();
+                listener.Stop();
+                tq.Stop();
+                tq.Dispose();
+            }
+            finally
+            {
+            }
             foreach (var client in _clients.Values)
             {
                 try
                 {
-                    client.Client.Disconnect(true);
-                    UpdateListView(client.Client.RemoteEndPoint.ToString(), connectionstatus);
+                    client.Client.Close();
                 }
                 finally
                 {
@@ -100,7 +103,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             Console.Write("Server Stopped!");
         }
 
-        private void reStartListener()
+        private void ReStartListener()
         {
             isRuning = true;
             listener.Start();
@@ -171,11 +174,13 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
                         var t1=WriteInfoAsync(data);
                         break; }
                     var amountRead = amountReadTask.Result;
-                    Message ms = new Message();
-                    ms.ip = ip;
-                    ms.data = Encoding.ASCII.GetString(buf, 0, amountRead);
-                    if(ms.data!=string.Empty)
-                        dataEvent(ms);
+                    Message ms = new Message()
+                    {
+                        ip = ip,
+                        data = Encoding.ASCII.GetString(buf, 0, amountRead)
+                    };
+                    if (ms.data!=string.Empty)
+                        DataEvent(ms);
                     
                     if (amountRead == 0) break; //end of stream.
                 }
@@ -189,7 +194,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             UpdateListView(ip, cs);
             if (numConnectedSockets < this.maxConnectedClients&&isRuning==false)
             {
-                reStartListener();
+                ReStartListener();
             }
         }
 
