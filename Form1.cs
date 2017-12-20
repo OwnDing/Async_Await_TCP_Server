@@ -75,9 +75,11 @@ namespace Blank_TCP_Server
 
             if (btn_run.Text == "Start")
             {
-                //start = true;
                 btn_run.Text = "Stop";
-                var th = new Thread(run);
+                var th = new Thread(run)
+                {
+                    Priority = ThreadPriority.Highest
+                };
                 th.Start();
                 txtipport.Enabled = false;
                 txtTimer.Enabled = false;
@@ -85,14 +87,11 @@ namespace Blank_TCP_Server
             }
             else
             {
-                //start = false;
-                //Console.WriteLine("please enter \"exit\" to stop server in the console!");
                 aas.Stop();
                 btn_run.Text = "Start";
                 txtipport.Enabled = true;
                 txtTimer.Enabled = true;
                 txtMaxConnections.Enabled = true;
-                //lvClients.Clear();
             }
             
         }
