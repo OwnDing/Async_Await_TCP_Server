@@ -12,12 +12,12 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
     {
         private Mutex mut = new Mutex();
         private List<Message> list;
-        private sqlitedata sql;
+        private SqliteData sql;
 
         public MessageDictionary()
         {
             list = new List<Message>();
-            sql = new sqlitedata();
+            sql = new SqliteData();
         }
 
         public void Add(Message msg)
@@ -39,13 +39,13 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
 
         public void UpdateSql()
         {
-            sql.fillTable(list);
+            sql.FillTable(list);
             list.Clear();
         }
 
         public void SqlShutDown()
         {
-            sql.conShutDown();
+            sql.ConShutDown();
         }
     }
 }

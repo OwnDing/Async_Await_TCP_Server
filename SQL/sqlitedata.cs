@@ -1,62 +1,59 @@
-﻿using System;
+﻿using Blank_TCP_Server.Servers.AsyncAwaitServer;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
-using Blank_TCP_Server.Servers.AsyncAwaitServer;
 
 namespace Blank_TCP_Server.SQL
 {
-    public class sqlitedata
+    public class SqliteData
     {
-        SQLiteConnection m_dbConnection;
-        public sqlitedata()
+        SQLiteConnection dbConnection;
+        public SqliteData()
         {
-            createNewDatabase();
+            CreateNewDatabase();
         }
 
-        void createNewDatabase()
+        void CreateNewDatabase()
         {
             string path = System.IO.Directory.GetCurrentDirectory();
             string databasefile = path + "\\Flapping.sqlite";
             if (!System.IO.File.Exists(databasefile))
             {
                 SQLiteConnection.CreateFile("Flapping.sqlite");
-                connectToDatabase();
-                createTable();
+                ConnectToDatabase();
+                CreateTable();
                 return;
             }
-            connectToDatabase();
+            ConnectToDatabase();
         }
 
-        void connectToDatabase()
+        void ConnectToDatabase()
         {
-            m_dbConnection = new SQLiteConnection("Data Source=Flapping.sqlite;Version=3;");
-            m_dbConnection.Open();
+            dbConnection = new SQLiteConnection("Data Source=Flapping.sqlite;Version=3;");
+            dbConnection.Open();
         }
 
-        void createTable()
+        void CreateTable()
         {
             string sql = "create table flappingdata (id INTEGER primary key, dt datetime default current_timestamp,lapping VARCHAR(180),ipaddress VARCHAR(30))";
-            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+            SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
             command.ExecuteNonQuery();
         }
-        public void fillTable(Message msg)
+        public void FillTable(Message msg)
         {
             try
             {
-                using (var tx = m_dbConnection.BeginTransaction())
+                using (var tx = dbConnection.BeginTransaction())
                 {
                     string sql = "insert into flappingdata (lapping,ipaddress) values ('" + msg.data + "','" + msg.ip + "')";
-                    SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                    SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
                     command.ExecuteNonQuery();
                     tx.Commit();
                 }
             }
             catch (SQLiteException e)
             {
-                connectToDatabase();
+                ConnectToDatabase();
                 Console.WriteLine("Error in Sqlite Connection. " + e.ToString());
             }
             catch (Exception e)
@@ -66,16 +63,16 @@ namespace Blank_TCP_Server.SQL
             
         }
 
-        public void fillTable(List<Message> list)
+        public void FillTable(List<Message> list)
         {
             try
             {
-                using (var tx = m_dbConnection.BeginTransaction())
+                using (var tx = dbConnection.BeginTransaction())
                 {
                     foreach (var msg in list)
                     {
                         string sql = "insert into flappingdata (dt,lapping,ipaddress) values ('" + msg.getDate + "','" + msg.data + "','" + msg.ip + "')";
-                        SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                        SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
                         command.ExecuteNonQuery();
                     }
                     tx.Commit();
@@ -83,7 +80,7 @@ namespace Blank_TCP_Server.SQL
             }
             catch (SQLiteException e)
             {
-                connectToDatabase();
+                ConnectToDatabase();
                 Console.WriteLine("Error in Sqlite Connection. " + e.ToString());
             }
             catch (Exception e)
@@ -92,9 +89,9 @@ namespace Blank_TCP_Server.SQL
             }
         }
 
-        public void conShutDown()
+        public void ConShutDown()
         {
-            m_dbConnection.Close();
+            dbConnection.Close();
         }
     }
 }

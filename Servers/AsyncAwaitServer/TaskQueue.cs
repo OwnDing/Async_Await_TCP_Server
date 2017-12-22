@@ -10,7 +10,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         protected object locker = new object();
         Thread[] workers;
         protected Queue<T> taskQ = new Queue<T>();
-        protected sqlitedata sql = new sqlitedata();
+        protected SqliteData sql = new SqliteData();
 
         public TaskQueue(int workerCount)
         {
@@ -26,7 +26,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             // Enqueue one null task per worker to make each exit.
             foreach (Thread worker in workers) EnqueueTask(null);
             foreach (Thread worker in workers) worker.Join();
-            sql.conShutDown();
+            sql.ConShutDown();
         }
 
         public virtual void EnqueueTask(T task)

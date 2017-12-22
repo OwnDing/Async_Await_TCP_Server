@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using Blank_TCP_Server.Function;
+using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Blank_TCP_Server.Function;
 
 namespace Blank_TCP_Server.Servers.AsyncAwaitServer
 {
@@ -21,7 +18,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         private bool isRuning;
         private Int32 maxConnectedClients;
 
-        private ConcurrentDictionary<string, TcpClient> _clients;
+        private ConcurrentDictionary<string, TcpClient> clients;
         /// <summary>
         /// tell the main form to delete or add connected info
         /// </summary>
@@ -51,7 +48,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             listener = new TcpListener(IPAddress.Any, port);
             this.numConnectedSockets = 0;
             this.maxConnectedClients = maxConnectedClients;
-            _clients = new ConcurrentDictionary<string, TcpClient>();
+            clients = new ConcurrentDictionary<string, TcpClient>();
         }
         /// <summary>
         /// start tcp server
@@ -87,7 +84,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             finally
             {
             }
-            foreach (var client in _clients.Values)
+            foreach (var client in clients.Values)
             {
                 try
                 {
@@ -99,7 +96,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
                 }
 
             }
-            _clients.Clear();
+            clients.Clear();
             Console.Write("Server Stopped!");
         }
 
@@ -152,7 +149,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
                 Interlocked.Increment(ref this.numConnectedSockets);
                 Console.WriteLine("Client connection accepted. There are {0} clients connected to the server",
                     this.numConnectedSockets);
-                _clients.AddOrUpdate(ip, client, (n, o) => { return client; });
+                clients.AddOrUpdate(ip, client, (n, o) => { return client; });
                 ConnectionStatus connectionstatus = ConnectionStatus.add;
                 UpdateListView(ip, connectionstatus);
                 while (!ct.IsCancellationRequested)
@@ -189,7 +186,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             Console.WriteLine("Client ({0}) disconnected.There are {1} clients connected to the server", ip,numConnectedSockets);
             data = "disconnected...   " + ip+"---Time:"+DateTime.Now.ToString();
             var t2=WriteInfoAsync(data);
-            _clients.TryRemove(ip, out client);
+            clients.TryRemove(ip, out client);
             ConnectionStatus cs = ConnectionStatus.delete;
             UpdateListView(ip, cs);
             if (numConnectedSockets < this.maxConnectedClients&&isRuning==false)
@@ -242,7 +239,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         /// <param name="datagram">message</param>
         public void SendToAll(byte[] datagram)
         {
-            foreach (var client in _clients.Values)
+            foreach (var client in clients.Values)
             {
                 Send(client, datagram);
             }
@@ -263,12 +260,12 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         /// <param name="datagram">message</param>
         public void SendToSelectedClient(string ip,string datagram)
         {
-            Send(_clients[ip], datagram);
+            Send(clients[ip], datagram);
         }
 
         public void SendToSelectedClient(string ip, byte[] datagram)
         {
-            Send(_clients[ip], datagram);
+            Send(clients[ip], datagram);
         }
 
         private void HandleDatagramWritten(IAsyncResult ar)

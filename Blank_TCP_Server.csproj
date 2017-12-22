@@ -79,6 +79,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function\Crc16.cs" />
     <Compile Include="Function\Extensions.cs" />
     <Compile Include="Function\StreamToTxt.cs" />
     <Compile Include="Servers\AsyncAwaitServer\AsyncAwaitServer.cs" />
@@ -89,7 +90,7 @@
     <Compile Include="Servers\AsyncAwaitServer\TaskQueue.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQL\sqlitedata.cs" />
+    <Compile Include="SQL\SqliteData.cs" />
     <Compile Include="Views\DataTransfer.cs">
       <SubType>Form</SubType>
     </Compile>
