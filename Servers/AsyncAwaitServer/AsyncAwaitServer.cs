@@ -59,7 +59,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             {
                 listener.Start();
                 isRuning = true;
-                var task=AcceptClientsAsync(listener, cts.Token);
+                var task = Task.Run(() => AcceptClientsAsync(listener, cts.Token));
                 if (task.IsFaulted)
                     task.Wait();
            
@@ -88,6 +88,10 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
             {
                 try
                 {
+                    ConnectionStatus cs = ConnectionStatus.delete;
+                    string ip = client.Client.RemoteEndPoint.ToString();
+                    UpdateListView(ip, cs);
+
                     client.Client.Close();
                 }
                 finally
@@ -97,6 +101,7 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
 
             }
             clients.Clear();
+            DataEvent -= tq.EnqueueTask;
             Console.Write("Server Stopped!");
         }
 
@@ -104,7 +109,8 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         {
             isRuning = true;
             listener.Start();
-            var task = AcceptClientsAsync(listener, cts.Token);
+            DataEvent += tq.EnqueueTask;
+            var task = Task.Run(() => AcceptClientsAsync(listener, cts.Token));
         }
 
         async Task AcceptClientsAsync(TcpListener listener, CancellationToken ct)
@@ -118,10 +124,32 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
                     listener.Stop();
                     break;
                 }
-                TcpClient client = await listener.AcceptTcpClientAsync().ConfigureAwait(false);
-                ip = client.Client.RemoteEndPoint.ToString();
 
-                var task= EchoAsync(client, ip, ct);
+                var c = new CancellationTokenSource(TimeSpan.FromSeconds(29));
+                var token = c.Token;
+                var timeoutTask = Task.Delay(TimeSpan.FromSeconds(35), token);
+                var acceptTask = listener.AcceptTcpClientAsync();
+                var completedTask = await Task.WhenAny(timeoutTask, acceptTask).ConfigureAwait(false);
+                if (completedTask == timeoutTask)
+                {
+                    c = null;
+                    timeoutTask = null;
+                    acceptTask = null;
+                    completedTask = null;
+                    continue;
+                }
+                if (acceptTask.IsFaulted || acceptTask.IsCanceled)
+                {
+                    timeoutTask = null;
+                    acceptTask = null;
+                    completedTask = null;
+                    c = null;
+                    continue;
+                }
+
+                var client = await acceptTask.ConfigureAwait(false);
+                ip = client.Client.RemoteEndPoint.ToString();
+                var task = Task.Run(() => EchoAsync(client, ip, ct));
             }
         }
 
@@ -130,66 +158,70 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
         async Task EchoAsync(TcpClient client,string ip,CancellationToken ct)
         {
             Console.WriteLine("New client ({0}) connected", ip);
-            string data;
+            var buf = new byte[4096 * 3];
 
             using (client)
             {
-                var buf = new byte[4096];
-                var stream = client.GetStream();
                 //if (!client.Client.Connected) return;
                 if (client.Client.Poll(0, SelectMode.SelectRead))
                 {
                     byte[] buff = new byte[1];
                     if (client.Client.Receive(buff, SocketFlags.Peek) == 0)
                     {
+                        buff = null;
                         return;
                     }
+                    buff = null;
                 }
 
                 Interlocked.Increment(ref this.numConnectedSockets);
                 Console.WriteLine("Client connection accepted. There are {0} clients connected to the server",
                     this.numConnectedSockets);
-                clients.AddOrUpdate(ip, client, (n, o) => { return client; });
+                clients.AddOrUpdate(ip, client, (n, o) => { return o; });
                 ConnectionStatus connectionstatus = ConnectionStatus.add;
                 UpdateListView(ip, connectionstatus);
-                while (!ct.IsCancellationRequested)
+                using (var stream = client.GetStream())
                 {
-                    var timeoutTask = Task.Delay(TimeSpan.FromSeconds(250));
-                    var amountReadTask = stream.ReadAsync(buf, 0, buf.Length, ct);
+                    while (!ct.IsCancellationRequested)
+                    {
+                        var timeoutTask = Task.Delay(TimeSpan.FromSeconds(610));
+                        var amountReadTask = stream.ReadAsync(buf, 0, buf.Length, ct);
 
-                    var completedTask = await Task.WhenAny(timeoutTask, amountReadTask)
-                                                  .ConfigureAwait(false);
-                    if (completedTask == timeoutTask)
-                    {
-                        var msg = Encoding.ASCII.GetBytes("Client timed out");
-                        await stream.WriteAsync(msg, 0, msg.Length).ConfigureAwait(false);
-                        break;
+                        var completedTask = await Task.WhenAny(timeoutTask, amountReadTask)
+                                                      .ConfigureAwait(false);
+                        if (completedTask == timeoutTask)
+                        {
+                            break;
+                        }
+
+                        if (amountReadTask.IsFaulted || amountReadTask.IsCanceled)
+                        {
+                            break;
+                        }
+                        var amountRead = amountReadTask.Result;
+                        if (amountRead == 0) { break; }
+                        Message ms = new Message()
+                        {
+                            ip = ip,
+                            data = Encoding.ASCII.GetString(buf, 0, amountRead)
+                        };
+                        if (ms.data != string.Empty)
+                        {
+                            DataEvent(ms);
+                        }
                     }
-                    //in some caes,this is helpful
-                    if (amountReadTask.IsFaulted || amountReadTask.IsCanceled) {
-                        data = "Error:IsFaulted||IsCanceled   " + ip;
-                        var t1=WriteInfoAsync(data);
-                        break; }
-                    var amountRead = amountReadTask.Result;
-                    Message ms = new Message()
-                    {
-                        ip = ip,
-                        data = Encoding.ASCII.GetString(buf, 0, amountRead)
-                    };
-                    if (ms.data!=string.Empty)
-                        DataEvent(ms);
-                    
-                    if (amountRead == 0) break; //end of stream.
                 }
             }
+            buf = null;
             Interlocked.Decrement(ref this.numConnectedSockets);
-            Console.WriteLine("Client ({0}) disconnected.There are {1} clients connected to the server", ip,numConnectedSockets);
-            data = "disconnected...   " + ip+"---Time:"+DateTime.Now.ToString();
-            var t2=WriteInfoAsync(data);
-            clients.TryRemove(ip, out client);
+            Console.WriteLine("Client ({0}) disconnected.There are {1} clients connected to the server", ip, numConnectedSockets);
+
+            clients.TryRemove(ip, out TcpClient tcpClient);
+            tcpClient.Close();
+            tcpClient = null;
             ConnectionStatus cs = ConnectionStatus.delete;
             UpdateListView(ip, cs);
-            if (numConnectedSockets < this.maxConnectedClients&&isRuning==false)
+            if (numConnectedSockets < this.maxConnectedClients && isRuning == false)
             {
                 ReStartListener();
             }

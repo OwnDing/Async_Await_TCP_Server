@@ -25,6 +25,7 @@ namespace Blank_TCP_Server
             InitializeComponent();
             txtipport.Text = Properties.Settings.Default.ipport;
             txtTimer.Text = Properties.Settings.Default.beeptime;
+            Console.Title = "Tcp Server";
         }
         #region btn
         private void btn_setting_Click(object sender, EventArgs e)
@@ -87,7 +88,10 @@ namespace Blank_TCP_Server
             }
             else
             {
-                aas.Stop();
+                if (aas != null)
+                {
+                    aas.Stop();
+                }
                 btn_run.Text = "Start";
                 txtipport.Enabled = true;
                 txtTimer.Enabled = true;
@@ -299,5 +303,24 @@ namespace Blank_TCP_Server
         }
 
         #endregion
+
+        private void tcpform_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult userAnswer = MessageBox.Show("Do you wish to close ALL Forms?", "Close",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (userAnswer != DialogResult.Yes)
+            {
+                e.Cancel = true;
+                return;
+            }
+            if (aas != null)
+            {
+                aas.Stop();
+                aas.Eventlistview -= UpdateListView;
+            }
+
+            aas = null;
+            this.Dispose();
+        }
     }
 }
