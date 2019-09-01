@@ -125,29 +125,8 @@ namespace Blank_TCP_Server.Servers.AsyncAwaitServer
                     break;
                 }
 
-                var c = new CancellationTokenSource(TimeSpan.FromSeconds(29));
-                var token = c.Token;
-                var timeoutTask = Task.Delay(TimeSpan.FromSeconds(35), token);
-                var acceptTask = listener.AcceptTcpClientAsync();
-                var completedTask = await Task.WhenAny(timeoutTask, acceptTask).ConfigureAwait(false);
-                if (completedTask == timeoutTask)
-                {
-                    c = null;
-                    timeoutTask = null;
-                    acceptTask = null;
-                    completedTask = null;
-                    continue;
-                }
-                if (acceptTask.IsFaulted || acceptTask.IsCanceled)
-                {
-                    timeoutTask = null;
-                    acceptTask = null;
-                    completedTask = null;
-                    c = null;
-                    continue;
-                }
-
-                var client = await acceptTask.ConfigureAwait(false);
+                
+                var client = await listener.AcceptTcpClientAsync().WithWaitCancellation(ct);
                 ip = client.Client.RemoteEndPoint.ToString();
                 var task = Task.Run(() => EchoAsync(client, ip, ct));
             }

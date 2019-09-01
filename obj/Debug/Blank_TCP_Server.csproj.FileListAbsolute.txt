@@ -56,3 +56,4 @@ C:\Users\djcmy\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Serve
 C:\Users\djcmy\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.csproj.CopyComplete
 C:\Users\djcmy\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.exe
 C:\Users\djcmy\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.pdb
+C:\Users\djcmy\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.csprojAssemblyReference.cache
