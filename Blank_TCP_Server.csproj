@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Blank_TCP_Server</RootNamespace>
     <AssemblyName>Blank_TCP_Server</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
@@ -79,6 +79,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function\ConsoleWindow.cs" />
     <Compile Include="Function\Crc16.cs" />
     <Compile Include="Function\Extensions.cs" />
     <Compile Include="Function\StreamToTxt.cs" />
