@@ -325,5 +325,10 @@ namespace Blank_TCP_Server
             aas = null;
             this.Dispose();
         }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsoleWindow.ShowConsoleWindow();
+        }
     }
 }
