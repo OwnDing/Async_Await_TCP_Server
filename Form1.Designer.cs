@@ -69,6 +69,10 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.cmsNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hiddenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -89,14 +93,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lvClients, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 36);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.05949F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.94051F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(566, 561);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(377, 374);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -104,7 +107,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.63598F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.36401F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 198F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
             this.tableLayoutPanel2.Controls.Add(this.btn_setting, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
@@ -118,23 +121,21 @@
             this.tableLayoutPanel2.Controls.Add(this.txtSendDataToAll, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.rbtnH16, 2, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(558, 220);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(371, 146);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btn_setting
             // 
-            this.btn_setting.Location = new System.Drawing.Point(363, 4);
-            this.btn_setting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_setting.Location = new System.Drawing.Point(240, 3);
             this.btn_setting.Name = "btn_setting";
-            this.btn_setting.Size = new System.Drawing.Size(112, 34);
+            this.btn_setting.Size = new System.Drawing.Size(75, 23);
             this.btn_setting.TabIndex = 1;
             this.btn_setting.Text = "SET";
             this.btn_setting.UseVisualStyleBackColor = true;
@@ -143,11 +144,10 @@
             // label3
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(4, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 50);
+            this.label3.Size = new System.Drawing.Size(71, 33);
             this.label3.TabIndex = 1;
             this.label3.Text = "Time";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -155,11 +155,10 @@
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(4, 50);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.Location = new System.Drawing.Point(3, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 70);
+            this.label2.Size = new System.Drawing.Size(71, 46);
             this.label2.TabIndex = 3;
             this.label2.Text = "Port";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -167,43 +166,39 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.txtTimer);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(121, 4);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(232, 39);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(154, 26);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // txtTimer
             // 
-            this.txtTimer.Location = new System.Drawing.Point(4, 4);
-            this.txtTimer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTimer.Location = new System.Drawing.Point(3, 3);
             this.txtTimer.Name = "txtTimer";
-            this.txtTimer.Size = new System.Drawing.Size(192, 28);
+            this.txtTimer.Size = new System.Drawing.Size(129, 21);
             this.txtTimer.TabIndex = 0;
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.txtipport);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(121, 54);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(80, 36);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(232, 58);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(154, 39);
             this.flowLayoutPanel2.TabIndex = 5;
             // 
             // txtipport
             // 
-            this.txtipport.Location = new System.Drawing.Point(4, 9);
-            this.txtipport.Margin = new System.Windows.Forms.Padding(4, 9, 4, 4);
+            this.txtipport.Location = new System.Drawing.Point(3, 6);
+            this.txtipport.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.txtipport.Name = "txtipport";
-            this.txtipport.Size = new System.Drawing.Size(192, 28);
+            this.txtipport.Size = new System.Drawing.Size(129, 21);
             this.txtipport.TabIndex = 0;
             // 
             // btn_run
             // 
-            this.btn_run.Location = new System.Drawing.Point(363, 124);
-            this.btn_run.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_run.Location = new System.Drawing.Point(240, 82);
             this.btn_run.Name = "btn_run";
-            this.btn_run.Size = new System.Drawing.Size(112, 34);
+            this.btn_run.Size = new System.Drawing.Size(75, 23);
             this.btn_run.TabIndex = 6;
             this.btn_run.Text = "Start";
             this.btn_run.UseVisualStyleBackColor = true;
@@ -211,10 +206,9 @@
             // 
             // btn_Send
             // 
-            this.btn_Send.Location = new System.Drawing.Point(4, 124);
-            this.btn_Send.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Send.Location = new System.Drawing.Point(3, 82);
             this.btn_Send.Name = "btn_Send";
-            this.btn_Send.Size = new System.Drawing.Size(108, 34);
+            this.btn_Send.Size = new System.Drawing.Size(71, 23);
             this.btn_Send.TabIndex = 7;
             this.btn_Send.Text = "SendToAll";
             this.btn_Send.UseVisualStyleBackColor = true;
@@ -224,37 +218,33 @@
             // 
             this.flowLayoutPanel3.Controls.Add(this.label1);
             this.flowLayoutPanel3.Controls.Add(this.txtMaxConnections);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(363, 54);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(240, 36);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(182, 58);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(121, 39);
             this.flowLayoutPanel3.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 18);
+            this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "MaxConnections";
             // 
             // txtMaxConnections
             // 
-            this.txtMaxConnections.Location = new System.Drawing.Point(4, 22);
-            this.txtMaxConnections.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaxConnections.Location = new System.Drawing.Point(3, 15);
             this.txtMaxConnections.Name = "txtMaxConnections";
-            this.txtMaxConnections.Size = new System.Drawing.Size(148, 28);
+            this.txtMaxConnections.Size = new System.Drawing.Size(100, 21);
             this.txtMaxConnections.TabIndex = 1;
             this.txtMaxConnections.Text = "100";
             // 
             // btn_timersend
             // 
-            this.btn_timersend.Location = new System.Drawing.Point(4, 172);
-            this.btn_timersend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_timersend.Location = new System.Drawing.Point(3, 114);
             this.btn_timersend.Name = "btn_timersend";
-            this.btn_timersend.Size = new System.Drawing.Size(108, 34);
+            this.btn_timersend.Size = new System.Drawing.Size(71, 23);
             this.btn_timersend.TabIndex = 10;
             this.btn_timersend.Text = "TimerSend";
             this.btn_timersend.UseVisualStyleBackColor = true;
@@ -262,27 +252,24 @@
             // 
             // txtSendData
             // 
-            this.txtSendData.Location = new System.Drawing.Point(121, 172);
-            this.txtSendData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSendData.Location = new System.Drawing.Point(80, 114);
             this.txtSendData.Name = "txtSendData";
-            this.txtSendData.Size = new System.Drawing.Size(196, 28);
+            this.txtSendData.Size = new System.Drawing.Size(132, 21);
             this.txtSendData.TabIndex = 8;
             // 
             // txtSendDataToAll
             // 
-            this.txtSendDataToAll.Location = new System.Drawing.Point(121, 124);
-            this.txtSendDataToAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSendDataToAll.Location = new System.Drawing.Point(80, 82);
             this.txtSendDataToAll.Name = "txtSendDataToAll";
-            this.txtSendDataToAll.Size = new System.Drawing.Size(196, 28);
+            this.txtSendDataToAll.Size = new System.Drawing.Size(132, 21);
             this.txtSendDataToAll.TabIndex = 11;
             // 
             // rbtnH16
             // 
             this.rbtnH16.AutoSize = true;
-            this.rbtnH16.Location = new System.Drawing.Point(363, 172);
-            this.rbtnH16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnH16.Location = new System.Drawing.Point(240, 114);
             this.rbtnH16.Name = "rbtnH16";
-            this.rbtnH16.Size = new System.Drawing.Size(61, 22);
+            this.rbtnH16.Size = new System.Drawing.Size(42, 16);
             this.rbtnH16.TabIndex = 12;
             this.rbtnH16.Text = "H16";
             this.rbtnH16.UseVisualStyleBackColor = true;
@@ -298,10 +285,9 @@
             this.chPort});
             this.lvClients.ContextMenuStrip = this.cmsSend;
             this.lvClients.HideSelection = false;
-            this.lvClients.Location = new System.Drawing.Point(4, 232);
-            this.lvClients.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvClients.Location = new System.Drawing.Point(3, 155);
             this.lvClients.Name = "lvClients";
-            this.lvClients.Size = new System.Drawing.Size(558, 294);
+            this.lvClients.Size = new System.Drawing.Size(371, 195);
             this.lvClients.SmallImageList = this.lvImages;
             this.lvClients.TabIndex = 1;
             this.lvClients.UseCompatibleStateImageBehavior = false;
@@ -328,12 +314,12 @@
             this.cmsSend.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiSend});
             this.cmsSend.Name = "cmsSend";
-            this.cmsSend.Size = new System.Drawing.Size(124, 32);
+            this.cmsSend.Size = new System.Drawing.Size(106, 26);
             // 
             // tsmiSend
             // 
             this.tsmiSend.Name = "tsmiSend";
-            this.tsmiSend.Size = new System.Drawing.Size(123, 28);
+            this.tsmiSend.Size = new System.Drawing.Size(105, 22);
             this.tsmiSend.Text = "Send";
             this.tsmiSend.ToolTipText = "Send to Client";
             this.tsmiSend.Click += new System.EventHandler(this.tsmiSend_Click);
@@ -351,10 +337,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslInfo,
             this.tsslConnections});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 567);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 368);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(566, 29);
+            this.statusStrip1.Size = new System.Drawing.Size(377, 29);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -370,7 +355,7 @@
             // 
             this.tsslConnections.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.tsslConnections.Name = "tsslConnections";
-            this.tsslConnections.Size = new System.Drawing.Size(118, 24);
+            this.tsslConnections.Size = new System.Drawing.Size(80, 24);
             this.tsslConnections.Text = "Connected:0";
             // 
             // timer1
@@ -384,11 +369,11 @@
             this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.dataToolStripMenuItem,
+            this.toolToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.msMain.Location = new System.Drawing.Point(0, 0);
             this.msMain.Name = "msMain";
-            this.msMain.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.msMain.Size = new System.Drawing.Size(566, 34);
+            this.msMain.Size = new System.Drawing.Size(377, 25);
             this.msMain.TabIndex = 1;
             this.msMain.Text = "menuStrip1";
             // 
@@ -397,14 +382,14 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(52, 28);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.Cancel;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -413,14 +398,14 @@
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.transferToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(63, 28);
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.dataToolStripMenuItem.Text = "&Data";
             // 
             // transferToolStripMenuItem
             // 
             this.transferToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.Left_right;
             this.transferToolStripMenuItem.Name = "transferToolStripMenuItem";
-            this.transferToolStripMenuItem.Size = new System.Drawing.Size(161, 30);
+            this.transferToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.transferToolStripMenuItem.Text = "&Transfer";
             this.transferToolStripMenuItem.Click += new System.EventHandler(this.transferToolStripMenuItem_Click);
             // 
@@ -429,14 +414,14 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(63, 28);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.Info;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(146, 30);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -454,26 +439,55 @@
             this.cmsNotifyIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem});
             this.cmsNotifyIcon.Name = "cmsNotifyIcon";
-            this.cmsNotifyIcon.Size = new System.Drawing.Size(171, 32);
+            this.cmsNotifyIcon.Size = new System.Drawing.Size(137, 26);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.openToolStripMenuItem.Text = "&Open App";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
+            // toolToolStripMenuItem
+            // 
+            this.toolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consoleToolStripMenuItem});
+            this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
+            this.toolToolStripMenuItem.Size = new System.Drawing.Size(46, 21);
+            this.toolToolStripMenuItem.Text = "&Tool";
+            // 
+            // consoleToolStripMenuItem
+            // 
+            this.consoleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem,
+            this.hiddenToolStripMenuItem});
+            this.consoleToolStripMenuItem.Name = "consoleToolStripMenuItem";
+            this.consoleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consoleToolStripMenuItem.Text = "Console";
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showToolStripMenuItem.Text = "Show";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // hiddenToolStripMenuItem
+            // 
+            this.hiddenToolStripMenuItem.Name = "hiddenToolStripMenuItem";
+            this.hiddenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hiddenToolStripMenuItem.Text = "Hidden";
+            // 
             // tcpform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 596);
+            this.ClientSize = new System.Drawing.Size(377, 397);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.msMain);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.msMain;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "tcpform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -541,6 +555,10 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip cmsNotifyIcon;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consoleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hiddenToolStripMenuItem;
     }
 }
 

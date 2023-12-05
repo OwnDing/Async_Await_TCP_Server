@@ -57,3 +57,16 @@ C:\Users\djcmy\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Serve
 C:\Users\djcmy\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.exe
 C:\Users\djcmy\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.pdb
 C:\Users\djcmy\Documents\GitHub\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.csprojAssemblyReference.cache
+F:\develop\NET\Async_Await_TCP_Server\bin\Debug\Blank_TCP_Server.exe.config
+F:\develop\NET\Async_Await_TCP_Server\bin\Debug\Blank_TCP_Server.exe
+F:\develop\NET\Async_Await_TCP_Server\bin\Debug\Blank_TCP_Server.pdb
+F:\develop\NET\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.csproj.AssemblyReference.cache
+F:\develop\NET\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.tcpform.resources
+F:\develop\NET\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.Properties.Resources.resources
+F:\develop\NET\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.Views.DataTransfer.resources
+F:\develop\NET\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.Views.FormAbout.resources
+F:\develop\NET\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.csproj.GenerateResource.cache
+F:\develop\NET\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.csproj.CoreCompileInputs.cache
+F:\develop\NET\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.csproj.CopyComplete
+F:\develop\NET\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.exe
+F:\develop\NET\Async_Await_TCP_Server\obj\Debug\Blank_TCP_Server.pdb

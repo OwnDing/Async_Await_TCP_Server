@@ -13,6 +13,7 @@ using Microsoft.VisualBasic;
 using Blank_TCP_Server.Views;
 using System.Runtime.InteropServices;
 using Blank_TCP_Server.Servers.AsyncAwaitServer;
+using Blank_TCP_Server.Function;
 
 namespace Blank_TCP_Server
 {
@@ -26,6 +27,8 @@ namespace Blank_TCP_Server
             txtipport.Text = Properties.Settings.Default.ipport;
             txtTimer.Text = Properties.Settings.Default.beeptime;
             Console.Title = "Tcp Server";
+            // 隐藏终端显示
+            ConsoleWindow.HideConsoleWindow();
         }
         #region btn
         private void btn_setting_Click(object sender, EventArgs e)
@@ -321,6 +324,11 @@ namespace Blank_TCP_Server
 
             aas = null;
             this.Dispose();
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsoleWindow.ShowConsoleWindow();
         }
     }
 }
