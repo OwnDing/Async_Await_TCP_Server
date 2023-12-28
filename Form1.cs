@@ -330,5 +330,10 @@ namespace Blank_TCP_Server
         {
             ConsoleWindow.ShowConsoleWindow();
         }
+
+        private void hiddenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsoleWindow.HideConsoleWindow();
+        }
     }
 }
