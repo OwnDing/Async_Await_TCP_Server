@@ -61,18 +61,18 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.cmsNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hiddenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.cmsNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -107,7 +107,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.63598F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.36401F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
             this.tableLayoutPanel2.Controls.Add(this.btn_setting, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
@@ -133,7 +133,7 @@
             // 
             // btn_setting
             // 
-            this.btn_setting.Location = new System.Drawing.Point(240, 3);
+            this.btn_setting.Location = new System.Drawing.Point(238, 3);
             this.btn_setting.Name = "btn_setting";
             this.btn_setting.Size = new System.Drawing.Size(75, 23);
             this.btn_setting.TabIndex = 1;
@@ -168,7 +168,7 @@
             this.flowLayoutPanel1.Controls.Add(this.txtTimer);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(154, 26);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(152, 26);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // txtTimer
@@ -183,7 +183,7 @@
             this.flowLayoutPanel2.Controls.Add(this.txtipport);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(80, 36);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(154, 39);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(152, 39);
             this.flowLayoutPanel2.TabIndex = 5;
             // 
             // txtipport
@@ -196,7 +196,7 @@
             // 
             // btn_run
             // 
-            this.btn_run.Location = new System.Drawing.Point(240, 82);
+            this.btn_run.Location = new System.Drawing.Point(238, 82);
             this.btn_run.Name = "btn_run";
             this.btn_run.Size = new System.Drawing.Size(75, 23);
             this.btn_run.TabIndex = 6;
@@ -218,7 +218,7 @@
             // 
             this.flowLayoutPanel3.Controls.Add(this.label1);
             this.flowLayoutPanel3.Controls.Add(this.txtMaxConnections);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(240, 36);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(238, 36);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(121, 39);
             this.flowLayoutPanel3.TabIndex = 9;
@@ -267,7 +267,7 @@
             // rbtnH16
             // 
             this.rbtnH16.AutoSize = true;
-            this.rbtnH16.Location = new System.Drawing.Point(240, 114);
+            this.rbtnH16.Location = new System.Drawing.Point(238, 114);
             this.rbtnH16.Name = "rbtnH16";
             this.rbtnH16.Size = new System.Drawing.Size(42, 16);
             this.rbtnH16.TabIndex = 12;
@@ -385,14 +385,6 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "&File";
             // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.Cancel;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
-            this.exitToolStripMenuItem.Text = "&Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
             // dataToolStripMenuItem
             // 
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -401,13 +393,37 @@
             this.dataToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.dataToolStripMenuItem.Text = "&Data";
             // 
-            // transferToolStripMenuItem
+            // toolToolStripMenuItem
             // 
-            this.transferToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.Left_right;
-            this.transferToolStripMenuItem.Name = "transferToolStripMenuItem";
-            this.transferToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
-            this.transferToolStripMenuItem.Text = "&Transfer";
-            this.transferToolStripMenuItem.Click += new System.EventHandler(this.transferToolStripMenuItem_Click);
+            this.toolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consoleToolStripMenuItem});
+            this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
+            this.toolToolStripMenuItem.Size = new System.Drawing.Size(46, 21);
+            this.toolToolStripMenuItem.Text = "&Tool";
+            // 
+            // consoleToolStripMenuItem
+            // 
+            this.consoleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem,
+            this.hiddenToolStripMenuItem});
+            this.consoleToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.icons8_console_50;
+            this.consoleToolStripMenuItem.Name = "consoleToolStripMenuItem";
+            this.consoleToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.consoleToolStripMenuItem.Text = "Console";
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showToolStripMenuItem.Text = "Show";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // hiddenToolStripMenuItem
+            // 
+            this.hiddenToolStripMenuItem.Name = "hiddenToolStripMenuItem";
+            this.hiddenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hiddenToolStripMenuItem.Text = "Hidden";
+            this.hiddenToolStripMenuItem.Click += new System.EventHandler(this.hiddenToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -416,14 +432,6 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.helpToolStripMenuItem.Text = "&Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.Info;
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
-            this.aboutToolStripMenuItem.Text = "&About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // notifyIcon1
             // 
@@ -448,35 +456,29 @@
             this.openToolStripMenuItem.Text = "&Open App";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
-            // toolToolStripMenuItem
+            // exitToolStripMenuItem
             // 
-            this.toolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consoleToolStripMenuItem});
-            this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
-            this.toolToolStripMenuItem.Size = new System.Drawing.Size(46, 21);
-            this.toolToolStripMenuItem.Text = "&Tool";
+            this.exitToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.Cancel;
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.exitToolStripMenuItem.Text = "&Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // consoleToolStripMenuItem
+            // transferToolStripMenuItem
             // 
-            this.consoleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showToolStripMenuItem,
-            this.hiddenToolStripMenuItem});
-            this.consoleToolStripMenuItem.Name = "consoleToolStripMenuItem";
-            this.consoleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.consoleToolStripMenuItem.Text = "Console";
+            this.transferToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.Left_right;
+            this.transferToolStripMenuItem.Name = "transferToolStripMenuItem";
+            this.transferToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.transferToolStripMenuItem.Text = "&Transfer";
+            this.transferToolStripMenuItem.Click += new System.EventHandler(this.transferToolStripMenuItem_Click);
             // 
-            // showToolStripMenuItem
+            // aboutToolStripMenuItem
             // 
-            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.showToolStripMenuItem.Text = "Show";
-            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
-            // 
-            // hiddenToolStripMenuItem
-            // 
-            this.hiddenToolStripMenuItem.Name = "hiddenToolStripMenuItem";
-            this.hiddenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.hiddenToolStripMenuItem.Text = "Hidden";
+            this.aboutToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.Info;
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.aboutToolStripMenuItem.Text = "&About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // tcpform
             // 

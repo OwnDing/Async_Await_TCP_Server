@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Monitors.ico" />
+    <None Include="Resources\icons8-console-50.png" />
     <None Include="Resources\Info.png" />
     <None Include="Resources\Left-right.png" />
     <None Include="Resources\Cancel.png" />
