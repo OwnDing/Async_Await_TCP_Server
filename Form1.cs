@@ -35,7 +35,7 @@ namespace Blank_TCP_Server
         {
             if (txtipport.Text.Length < 3 || txtTimer.Text=="")
             {
-                MessageBox.Show("請設置正確的IP,PORT,Timer！");
+                MessageBox.Show("请设置正确的 IP,PORT,Timer！");
                 return;
             }
 
@@ -73,7 +73,7 @@ namespace Blank_TCP_Server
         {
             if (txtipport.Text.Length < 3 )
             {
-                MessageBox.Show("請設置正確的IP和TIME！");
+                MessageBox.Show("请设置正确的IP和TIME！");
                 return;
             }
 
