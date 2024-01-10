@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<language Id="ENG" Name="English" LocaleName="English" LangID="0x0409" CodePage="1252">
+  <strings>
+    <INF_AppName>NotePad</INF_AppName>
+    <INF_Information>Information</INF_Information>
+    <INF_ContentChanged>The content has been changed. Do you want to save it?</INF_ContentChanged>
+  </strings>
+  <forms>
+    <Form1 Text="TCP Server">
+      <helpToolStripMenuItem Text="File" />
+      <NewToolStripMenuItem Text="New Chemical Process Model" />
+    </FormMain>
+  </forms>
+</language>

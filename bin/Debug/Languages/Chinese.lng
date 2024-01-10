@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<language Id="CHS" Name="Chinese" LocaleName="中文(简体)" LangID="0x0409" CodePage="1252">
+  <strings>
+    <INF_AppName>记事本</INF_AppName>
+    <INF_Information>提示</INF_Information>
+    <INF_ContentChanged>文件内容已被改变，要保存吗？</INF_ContentChanged>
+  </strings>
+  <forms>
+    <Form1 Text="TCP 服务">
+      <helpToolStripMenuItem Text="文件" />
+      <NewToolStripMenuItem Text="新化学流程模型" />
+    </FormMain>
+  </forms>
+</language>
