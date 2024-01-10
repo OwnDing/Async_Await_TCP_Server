@@ -83,6 +83,7 @@
     <Compile Include="Function\Crc16.cs" />
     <Compile Include="Function\Extensions.cs" />
     <Compile Include="Function\StreamToTxt.cs" />
+    <Compile Include="Language\LanguageMgr.cs" />
     <Compile Include="Servers\AsyncAwaitServer\AsyncAwaitServer.cs" />
     <Compile Include="Servers\AsyncAwaitServer\Message.cs" />
     <Compile Include="Servers\AsyncAwaitServer\MessageDictionary.cs" />
