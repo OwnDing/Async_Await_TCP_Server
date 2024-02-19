@@ -73,6 +73,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.cmsNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -107,7 +108,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.63598F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.36401F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.tableLayoutPanel2.Controls.Add(this.btn_setting, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
@@ -133,7 +134,7 @@
             // 
             // btn_setting
             // 
-            this.btn_setting.Location = new System.Drawing.Point(237, 3);
+            this.btn_setting.Location = new System.Drawing.Point(236, 3);
             this.btn_setting.Name = "btn_setting";
             this.btn_setting.Size = new System.Drawing.Size(75, 23);
             this.btn_setting.TabIndex = 1;
@@ -168,7 +169,7 @@
             this.flowLayoutPanel1.Controls.Add(this.txtTimer);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(79, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(152, 26);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(151, 26);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // txtTimer
@@ -183,7 +184,7 @@
             this.flowLayoutPanel2.Controls.Add(this.txtipport);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(79, 36);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(152, 39);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(151, 39);
             this.flowLayoutPanel2.TabIndex = 5;
             // 
             // txtipport
@@ -196,7 +197,7 @@
             // 
             // btn_run
             // 
-            this.btn_run.Location = new System.Drawing.Point(237, 82);
+            this.btn_run.Location = new System.Drawing.Point(236, 82);
             this.btn_run.Name = "btn_run";
             this.btn_run.Size = new System.Drawing.Size(75, 23);
             this.btn_run.TabIndex = 6;
@@ -218,7 +219,7 @@
             // 
             this.flowLayoutPanel3.Controls.Add(this.label1);
             this.flowLayoutPanel3.Controls.Add(this.txtMaxConnections);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(237, 36);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(236, 36);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(121, 39);
             this.flowLayoutPanel3.TabIndex = 9;
@@ -267,7 +268,7 @@
             // rbtnH16
             // 
             this.rbtnH16.AutoSize = true;
-            this.rbtnH16.Location = new System.Drawing.Point(237, 114);
+            this.rbtnH16.Location = new System.Drawing.Point(236, 114);
             this.rbtnH16.Name = "rbtnH16";
             this.rbtnH16.Size = new System.Drawing.Size(42, 16);
             this.rbtnH16.TabIndex = 12;
@@ -389,7 +390,7 @@
             // 
             this.exitToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.Cancel;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -405,7 +406,7 @@
             // 
             this.transferToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.Left_right;
             this.transferToolStripMenuItem.Name = "transferToolStripMenuItem";
-            this.transferToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.transferToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.transferToolStripMenuItem.Text = "&Transfer";
             this.transferToolStripMenuItem.Click += new System.EventHandler(this.transferToolStripMenuItem_Click);
             // 
@@ -424,27 +425,28 @@
             this.hiddenToolStripMenuItem});
             this.consoleToolStripMenuItem.Image = global::Blank_TCP_Server.Properties.Resources.icons8_console_50;
             this.consoleToolStripMenuItem.Name = "consoleToolStripMenuItem";
-            this.consoleToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.consoleToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.consoleToolStripMenuItem.Text = "Console";
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.showToolStripMenuItem.Text = "Show";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // hiddenToolStripMenuItem
             // 
             this.hiddenToolStripMenuItem.Name = "hiddenToolStripMenuItem";
-            this.hiddenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hiddenToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.hiddenToolStripMenuItem.Text = "Hidden";
             this.hiddenToolStripMenuItem.Click += new System.EventHandler(this.hiddenToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.languageToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.helpToolStripMenuItem.Text = "&Help";
@@ -479,6 +481,12 @@
             this.openToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.openToolStripMenuItem.Text = "&Open App";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // languageToolStripMenuItem
+            // 
+            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.languageToolStripMenuItem.Text = "Language";
             // 
             // tcpform
             // 
@@ -561,6 +569,7 @@
         private System.Windows.Forms.ToolStripMenuItem consoleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hiddenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
     }
 }
 

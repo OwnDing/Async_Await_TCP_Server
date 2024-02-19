@@ -6,9 +6,12 @@
     <INF_ContentChanged>The content has been changed. Do you want to save it?</INF_ContentChanged>
   </strings>
   <forms>
-    <Form1 Text="TCP Server">
-      <helpToolStripMenuItem Text="File" />
-      <NewToolStripMenuItem Text="New Chemical Process Model" />
-    </FormMain>
+    <tcpform Text="TCP Server">
+      <fileToolStripMenuItem Text="File" />
+      <exitToolStripMenuItem Text="Exit" />
+      <languageToolStripMenuItem Text="Language" />
+    </tcpform>
+    <FormAbout Text="About">
+    </FormAbout>
   </forms>
 </language>

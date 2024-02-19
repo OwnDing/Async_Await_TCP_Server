@@ -14,6 +14,7 @@ using Blank_TCP_Server.Views;
 using System.Runtime.InteropServices;
 using Blank_TCP_Server.Servers.AsyncAwaitServer;
 using Blank_TCP_Server.Function;
+using Blank_TCP_Server.Language;
 
 namespace Blank_TCP_Server
 {
@@ -29,7 +30,37 @@ namespace Blank_TCP_Server
             Console.Title = "Tcp Server";
             // 隐藏终端显示
             ConsoleWindow.HideConsoleWindow();
+            ML.LoadFormLanguage(this);
+            BuildLanguageMenuItems();
         }
+
+        private void BuildLanguageMenuItems()
+        {
+            if (ML.LanguageLocalNames.Length == 0)
+            {
+                languageToolStripMenuItem.Visible = false;
+                return;
+            }
+
+            for (int i = 0; i <= ML.LanguageLocalNames.Length - 1; i++)
+            {
+                string ln = ML.LanguageLocalNames[i];
+                var menuItem = new ToolStripMenuItem(ln);
+                //menuItem.CheckOnClick = true;
+                menuItem.Tag = i;
+                if (i == 0)
+                    menuItem.Checked = true;
+                menuItem.Click += new EventHandler((sender, e) =>
+                {
+                    foreach (ToolStripMenuItem item in languageToolStripMenuItem.DropDownItems)
+                        item.Checked = (item == sender);
+                    ML.LoadLanguageByIndex((int)(sender as ToolStripItem).Tag);
+                    ML.LoadFormLanguage(this);
+                });
+                languageToolStripMenuItem.DropDownItems.Add(menuItem);
+            }
+        }
+
         #region btn
         private void btn_setting_Click(object sender, EventArgs e)
         {
