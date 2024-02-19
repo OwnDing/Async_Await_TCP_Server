@@ -6,9 +6,12 @@
     <INF_ContentChanged>文件内容已被改变，要保存吗？</INF_ContentChanged>
   </strings>
   <forms>
-    <Form1 Text="TCP 服务">
-      <helpToolStripMenuItem Text="文件" />
-      <NewToolStripMenuItem Text="新化学流程模型" />
-    </FormMain>
+    <tcpform Text="TCP 服务">
+      <fileToolStripMenuItem Text="文件" />
+      <exitToolStripMenuItem Text="退出" />
+      <languageToolStripMenuItem Text="语言" />
+    </tcpform>
+    <FormAbout Text="关于">
+    </FormAbout>
   </forms>
 </language>
